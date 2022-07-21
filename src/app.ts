@@ -1,6 +1,4 @@
 import express from "express";
-// import handlebars from 'express-handlebars'
-import { engine } from 'express-handlebars';
 import path from "path";
 
 import productsRouter from "./routes/productsRoutes";
@@ -11,17 +9,9 @@ app.use(
   express.static(path.join(__dirname, "../public"), { maxAge: 31557600000 })
 );
 
-app.engine(
-  'hbs',
-  engine({
-    extname: '.hbs',
-    defaultLayout: 'index.hbs',
-    layoutsDir: __dirname + '/views/layouts',
-    partialsDir: __dirname + '/views/partials',
-  })
-);
-app.set('view engine', 'hbs');
+
 app.set('views', `${__dirname}/views/`);
+app.set('view engine', 'pug');
 
 
 

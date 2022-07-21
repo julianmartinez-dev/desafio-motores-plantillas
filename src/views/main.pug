@@ -1,0 +1,24 @@
+extends ./layout/index
+block contenido
+    h1(class="text-center mb-3") Vista de Productos
+
+    if productsExist
+        table(class="table md-w-50 border-success")
+            thead
+                tr
+                    th(scope="col") Nombre
+                    th(scope="col") Precio
+                    th(scope="col") Foto
+        
+            tbody
+                each product in products
+                    tr
+                        td=product.title
+                        td=product.price
+                        td
+                            img(src=product.thumbnail style="width: 40px" alt="imagen producto")
+    else
+        div(class="alert alert alert-danger d-flex justify-content-center align-items-center mx-auto" role="alert")
+            p(class="mb-0 p-3") No hay productos
+    
+    a(href="/" class="btn btn-danger") Agregar Producto
