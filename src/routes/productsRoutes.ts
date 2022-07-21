@@ -7,7 +7,7 @@ const router = express.Router();
 
 router
   .route('/')
-  .get( (_req: Request, res : Response) => res.render('form'))
+  .get( (_req: Request, res : Response) => res.render('pages/form'))
 
 router
   .route('/productos')

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+</head>
+<body class="bg-light d-flex justify-content-center align-items-center min-vh-100">
+    <main>
+        <h1 class="mb-3">Ingrese un producto</h1>
+        <form method="POST" action="/productos">
+            <div class="mb-3">
+                <label for="title" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="title" aria-describedby="nombreHelp" name="title">
+                <div id="nombreHelp" class="form-text">Ingrese el nombre del producto</div>
+            </div>
+            <div class="mb-3">
+                <label for="price" class="form-label">Precio</label>
+                <input type="number" class="form-control" id="price" aria-describedby="precioHelp" name="price">
+                <div id="precioHelp" class="form-text">Ingrese el precio del producto</div>
+            </div>
+            <div class="mb-3">
+                <label for="thumbnail" class="form-label">Foto URL</label>
+                <input type="text" class="form-control" id="thumbnail" aria-describedby="nombreHelp" name="thumbnail">
+                <div id="nombreHelp" class="form-text">URL de la imagen del producto</div>
+            </div>
+            
+            <div class="d-flex justify-content-between">
+                <a href="/productos" class="btn btn-danger">Mostrar listado</a>
+                <input type="submit" class="btn btn-success" value="Agregar Producto"></input>
+            </div>
+        </form>
+    </main>
+</body>
+</html>

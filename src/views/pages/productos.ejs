@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <%- include('../partials/head'); %>
+</head>
+<body class="bg-light d-flex justify-content-center align-items-center min-vh-100">
+    <main>
+        <h1 class="text-center mb-3">Vista de Productos</h1>
+        <% if(productsExist){ %>
+            <table class='table md-w-50 border-success'>
+                <thead>
+                <tr>
+                    <th scope='col'>Nombre</th>
+                    <th scope='col'>Precio</th>
+                    <th scope='col'>Foto</th>
+                </tr>
+                </thead>
+                <tbody>
+                <% products.forEach( product =>{%>
+                    <tr>
+                        <td><%= product.title %></td>
+                        <td><%= product.price %></td>
+                        <td><img style="width: 40px" src=<%= product.thumbnail %>></td>
+                    </tr>
+                <% }); %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <div class="alert alert-danger d-flex justify-content-center align-items-center mx-auto" role="alert">
+                <p class="m-0 p-3">No hay productos</p>
+            </div>
+        <% } %>
+        <a href="/" class="btn btn-danger w-100">Agregar Producto</a>
+    </main>
+</body>
+</html>

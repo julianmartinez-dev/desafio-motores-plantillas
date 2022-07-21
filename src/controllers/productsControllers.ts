@@ -7,7 +7,7 @@ const contenedor = new Contenedor('data');
 const getAllProducts = async (req: Request, res: Response) => {
   const products = await contenedor.getAll();
 
-  res.render('main',{
+  res.render('pages/productos',{
     products,
     productsExist : true
   });
@@ -18,11 +18,11 @@ const getProductById = async (req: Request, res: Response) => {
   const product = await contenedor.getById(Number(id));
 
   if(!product){
-    res.render('main',{ productsExist : false })
+    res.render('pages/productos',{ productsExist : false })
     return;
   }
 
-  res.render('main', {
+  res.render('pages/productos', {
     products : [product],
     productsExist : true
   });
@@ -38,7 +38,7 @@ const addProduct = async (req: Request, res: Response) => {
 
   await contenedor.save(product);
 
-  res.render('main',{
+  res.render('pages/productos',{
     products : await contenedor.getAll(),
     productsExist : true
   })
